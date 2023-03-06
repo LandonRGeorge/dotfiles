@@ -1,0 +1,74 @@
+"" httstractionFreeModep
+"" https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
+"" https://news.ycombinator.com/item?id=24065687
+"" https://goudham.me/my-second-brain/my-ideavim-config.html
+"" :actionlist to get list of available actions
+
+"" Source your .vimrc
+" source ~/.vimrc
+
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+set ideajoin
+
+set scrolloff=5
+set incsearch
+set ignorecase smartcase
+set number relativenumber
+set hls
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+let mapleader=" "
+
+""" Distraction Free Mode
+nmap <Leader>z <Action>(ToggleDistractionFreeMode)
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nmap <c-j> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-k> <c-w>j
+nmap <c-i> <c-w>k
+
+nmap <TAB> <Action>PreviousTab
+nmap <s-TAB> <Action>NextTab
+
+" nnoremap <Leader>= : action ActivateTerminalToolWindow<CR>
+
+" nnoremap <c-p> :action JumpToLastWindow<CR>
+" nnoremap <c-x> :action HideAllWindows<CR>
+
+
+nmap <leader>fi <Action>(ShowNavBar)
+nmap <leader>fo <Action>(GotoFile)
+nmap <leader>ff <Action>(FindInPath)
+nmap <leader>fm <Action>(MainMenu)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fp <Action>(ManageRecentProjects)
+nmap <leader><leader> <Action>(SearchEverywhere)
+
+" Bye bye
+nmap <leader>q <Action>(CloseContent)
+nmap <leader>Q <Action>(CloseAllEditors)
+nmap <leader>h <Action>(HideAllWindows)
+
+" Window movement.
+nmap <leader>wv :vsplit<CR>
+nmap <leader>ws :split<CR>
+
+" delete window
+nmap <leader>wd <C-W>c
+nmap <leader>wx <C-W>c
+
+" move between windows
+nmap <leader>ww <C-W>w
+nmap <leader>wl <C-W>l
+nmap <leader>wh <C-W>h
+nmap <leader>wk <C-W>k
+nmap <leader>wj <C-W>j
+nmap <leader>wo <C-W>o
+
+nmap <leader>rt  <Action>(Refactorings.QuickListPopupAction)
