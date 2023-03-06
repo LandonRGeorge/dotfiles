@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>159C1F36-0594-4961-A045-F4991520B710</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>pivotal</string>
+			<key>text</key>
+			<string>Story #{query}</string>
+			<key>url</key>
+			<string>https://www.pivotaltracker.com/story/show/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>360871AD-BD57-4D14-BC5A-B028AD1F2F6C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>kace</string>
+			<key>text</key>
+			<string>Ticket #{query}</string>
+			<key>url</key>
+			<string>https://kace.benekeith.com/adminui/ticket.php?ID={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
