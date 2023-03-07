@@ -3,6 +3,23 @@
 "" https://goudham.me/my-second-brain/my-ideavim-config.html
 "" :actionlist to get list of available actions
 
+"" Set Handlers
+sethandler <S-Tab> a:vim
+sethandler <C-A> a:ide
+sethandler <C-C> a:ide
+sethandler <C-D> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <A-J> a:vim
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-Q> a:vim
+sethandler <C-T> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> a:ide
+
 let mapleader=" "
 
 set ideajoin
@@ -22,17 +39,17 @@ map Q gq
 map \r  <Action>(IdeaVim.ReloadVimRc.reload)
 
 "" navigate history
-map <C-o> <Action>(Back)
-map <C-i> <Action>(Forward)
+map <c-o> <Action>(Back)
+map <c-i> <Action>(Forward)
 
 "" refactoring
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 map <leader>rt <Action>(Refactorings.QuickListPopupAction)
+map <leader>rl <Action>(ReformatCode)
 
 "" terminal
 map <leader>tt <Action>(ActivateTerminalToolWindow)
 map <leader>to <Action>(Terminal.OpenInTerminal)
-
 
 "" file navigation
 map <leader>ff <Action>(GotoFile)
@@ -48,3 +65,20 @@ map <leader>hh <Action>(HideAllWindows)
 
 map gd <Action>(GotoDeclaration)
 map gi <Action>(GotoImplementation)
+map gu <Action>(ShowUsages)
+
+noremap <c-h> <c-w><c-h>
+noremap <c-j> <c-w><c-j>
+noremap <c-k> <c-w><c-k>
+noremap <c-l> <c-w><c-l>
+
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+" Navigate project errors
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
+
+
