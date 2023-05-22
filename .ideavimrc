@@ -22,18 +22,24 @@ sethandler <C-V> a:ide
 
 let mapleader=" "
 
+"" "“smart-join” strings, control structures, and others
 set ideajoin
+
+"" makes the behavior of refactorings such as renamings more deterministic
 set idearefactormode=keep
+
 set clipboard+=unnamed
 set clipboard+=ideaput
 
+"" determines the number of context lines you would like to see above and below the cursor
 set scrolloff=5
+
 set incsearch
 set ignorecase smartcase
 set number relativenumber
 set hls
 
-" Don't use Ex mode, use Q for formatting.
+"" Don't use Ex mode, use Q for formatting.
 map Q gq
 
 map \r  <Action>(IdeaVim.ReloadVimRc.reload)
@@ -42,21 +48,24 @@ map \r  <Action>(IdeaVim.ReloadVimRc.reload)
 map <c-o> <Action>(Back)
 map <c-i> <Action>(Forward)
 
+"" split editor window
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+
 "" refactoring
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
-map <leader>rt <Action>(Refactorings.QuickListPopupAction)
-map <leader>rl <Action>(ReformatCode)
+map <c-t> <Action>(Refactorings.QuickListPopupAction)
+map <leader>t <Action>(Refactorings.QuickListPopupAction)
 
 "" terminal
-map <leader>tt <Action>(ActivateTerminalToolWindow)
-map <leader>to <Action>(Terminal.OpenInTerminal)
+map <leader>` <Action>(ActivateTerminalToolWindow)
+map <leader><leader>` <Action>(Terminal.OpenInTerminal)
 
 "" file navigation
-map <leader>ff <Action>(GotoFile)
-map <leader>f/ <Action>(FindInPath)
-map <leader><leader> <Action>(ShowNavBar) 
+map <leader>i <Action>(ShowNavBar)
+map <leader><leader>i <Action>(ShowFilePath)
 
-map <leader>mm <Action>(MainMenu)
+map <leader>m <Action>(MainMenu)
 
 "" bye bye
 map <leader>qq <Action>(CloseContent)
@@ -67,18 +76,4 @@ map gd <Action>(GotoDeclaration)
 map gi <Action>(GotoImplementation)
 map gu <Action>(ShowUsages)
 
-noremap <c-h> <c-w><c-h>
-noremap <c-j> <c-w><c-j>
-noremap <c-k> <c-w><c-k>
-noremap <c-l> <c-w><c-l>
-
-nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
-nnoremap <c-=> :action Unsplit<CR>
-nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
-
-" Navigate project errors
-map ]e <Action>(GotoNextError)
-map [e <Action>(GotoPreviousError)
-
-
+map <leader>z <Action>(ToggleDistractionFreeMode)<CR>
